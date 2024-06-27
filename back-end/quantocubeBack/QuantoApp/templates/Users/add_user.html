@@ -1,0 +1,15 @@
+<!-- myapp/templates/myapp/add_user.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add User</title>
+</head>
+<body>
+  <h1>Add a new user</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add User</button>
+  </form>
+</body>
+</html>
