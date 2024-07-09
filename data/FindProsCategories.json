@@ -1,0 +1,149 @@
+{
+
+  "categories": [
+    {
+      "name": "All",
+      "image": "../assets/images/findpros/icons/all.png",
+      "subcategories": [
+        {
+          "name": "Interior Painting",
+          "image": "path/to/your/image1.jpg"
+        },
+        {
+          "name": "Exterior Painting",
+          "image": "path/to/your/image2.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Renovations",
+      "image": "../assets/images/findpros/icons/renovations.png",
+      "subcategories": [
+        {
+          "name": "Interior Painting",
+          "image": "path/to/your/image1.jpg"
+        },
+        {
+          "name": "Exterior Painting",
+          "image": "path/to/your/image2.jpg"
+        },
+        {
+          "name": "Interior Design",
+          "image": "path/to/your/image3.jpg"
+        },
+        {
+          "name": "Interior Design",
+          "image": "path/to/your/image3.jpg"
+        },
+        {
+          "name": "Flooring Installation",
+          "image": "path/to/your/image3.jpg"
+        },
+        {
+          "name": "Cabinetry and Carpentry",
+          "image": "path/to/your/image3.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Air Conditioning",
+      "image": "../assets/images/findpros/icons/aircon.png",
+      "subcategories": [
+        {
+          "name": "Installation",
+          "image": "path/to/your/image4.jpg"
+        },
+        {
+          "name": "Maintenance",
+          "image": "path/to/your/image5.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Installations",
+      "image": "../assets/images/findpros/icons/installations.png",
+      "subcategories": [
+        {
+          "name": "Flooring Installation",
+          "image": "path/to/your/image6.jpg"
+        },
+        {
+          "name": "Cabinetry and Carpentry",
+          "image": "path/to/your/image7.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Electrical",
+      "image": "../assets/images/findpros/icons/electrical.png",
+      "subcategories": [
+        {
+          "name": "Wiring",
+          "image": "path/to/your/image8.jpg"
+        },
+        {
+          "name": "Lighting",
+          "image": "path/to/your/image9.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Plumbing",
+      "image": "../assets/images/findpros/icons/plumbing.png",
+      "subcategories": [
+        {
+          "name": "All",
+          "image": "path/to/your/image10.jpg"
+        },
+        {
+          "name": "Leak Repair",
+          "image": "path/to/your/image11.jpg"
+        },
+        {
+          "name": "Toilet Installation",
+          "image": "path/to/your/image11.jpg"
+        },
+        {
+          "name": "Water Heater",
+          "image": "path/to/your/image11.jpg"
+        },
+        {
+          "name": "Drain Cleaning",
+          "image": "path/to/your/image11.jpg"
+        },
+        {
+          "name": "Fixture Installation",
+          "image": "path/to/your/image11.jpg"
+        }
+      ]
+    },
+    {
+      "name": "TEST",
+      "image": "path/to/your/image3.jpg",
+      "subcategories": [
+        {
+          "name": "TESTSUB",
+          "image": "path/to/your/image10.jpg"
+        },
+        {
+          "name": "TESTSUB Repair",
+          "image": "path/to/your/image11.jpg"
+        }
+      ]
+    },
+    {
+      "name": "TEST2",
+      "image": "path/to/your/image3.jpg",
+      "subcategories": [
+        {
+          "name": "TESTSUB",
+          "image": "path/to/your/image10.jpg"
+        },
+        {
+          "name": "TESTSUB Repair",
+          "image": "path/to/your/image11.jpg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+    "categories": [
+      {
+        "name": "xx",
+        "image": "../assets/images/findpros/icons/all.png",
+        "distance": "0.5km",
+        "rating": "4.5",
+        "tags": [
+          "tag1",
+          "tag2"
+        ]
+      }
+    ]
+  }

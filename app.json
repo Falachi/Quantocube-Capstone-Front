@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "QuantoSearch2",
-    "slug": "QuantoSearch2",
+    "slug": "quantocube",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -18,10 +18,23 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.falachi.quantocube"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "abd41885-c515-4f6e-bd5f-1411d6922823"
+      }
+    },
+    "owner": "falachi",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/abd41885-c515-4f6e-bd5f-1411d6922823"
     }
   }
 }
