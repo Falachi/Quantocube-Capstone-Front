@@ -1,5 +1,4 @@
 {
-
   "categories": [
     {
       "name": "All",
@@ -7,11 +6,67 @@
       "subcategories": [
         {
           "name": "Interior Painting",
-          "image": "path/to/your/image1.jpg"
+          "image": "../assets/images/findpros/icons/intpaint.png"
         },
         {
           "name": "Exterior Painting",
-          "image": "path/to/your/image2.jpg"
+          "image": "../assets/images/findpros/icons/expaint.png"
+        },
+        {
+          "name": "Interior Design",
+          "image": "../assets/images/findpros/icons/interiordesign.png"
+        },
+        {
+          "name": "Flooring Installation",
+          "image": "../assets/images/findpros/icons/flooring.png"
+        },
+        {
+          "name": "Cabinetry and Carpentry",
+          "image": "../assets/images/findpros/icons/carpentry.png"
+        },
+        {
+          "name": "AC Installation",
+          "image": "../assets/images/findpros/icons/acinstallation.png"
+        },
+        {
+          "name": "AC Maintenance",
+          "image": "../assets/images/findpros/icons/acmaintainence.png"
+        },
+        {
+          "name": "Flooring Installation",
+          "image": "../assets/images/findpros/icons/flooringinstall.png"
+        },
+        {
+          "name": "Cabinetry Installation",
+          "image": "../assets/images/findpros/icons/cabinetinstall.png"
+        },
+        {
+          "name": "Wiring",
+          "image": "../assets/images/findpros/icons/wiring.png"
+        },
+        {
+          "name": "Lighting",
+          "image": "../assets/images/findpros/icons/lighting.png"
+        },
+        {
+          "name": "Leak Repair",
+          "image": "../assets/images/findpros/icons/leak.png"
+        },
+        {
+          "name": "Toilet Installation",
+          "image": "../assets/images/findpros/icons/toilet.png"
+        },
+        {
+          "name": "Water Heater",
+          "image": "../assets/images/findpros/icons/heater.png"
+        },
+        {
+          "name": "Drain Cleaning",
+          "image": "../assets/images/findpros/icons/drain.png"
+        },
+        {
+          "name": "Fixture Installation",
+          "image": "../assets/images/findpros/icons/fixture.png"
         }
       ]
     },
@@ -21,27 +76,23 @@
       "subcategories": [
         {
           "name": "Interior Painting",
-          "image": "path/to/your/image1.jpg"
+          "image": "../assets/images/findpros/icons/intpaint.png"
         },
         {
           "name": "Exterior Painting",
-          "image": "path/to/your/image2.jpg"
+          "image": "../assets/images/findpros/icons/expaint.png"
         },
         {
           "name": "Interior Design",
-          "image": "path/to/your/image3.jpg"
-        },
-        {
-          "name": "Interior Design",
-          "image": "path/to/your/image3.jpg"
+          "image": "../assets/images/findpros/icons/interiordesign.png"
         },
         {
           "name": "Flooring Installation",
-          "image": "path/to/your/image3.jpg"
+          "image": "../assets/images/findpros/icons/flooring.png"
         },
         {
           "name": "Cabinetry and Carpentry",
-          "image": "path/to/your/image3.jpg"
+          "image": "../assets/images/findpros/icons/carpentry.png"
         }
       ]
     },
@@ -51,11 +102,11 @@
       "subcategories": [
         {
           "name": "Installation",
-          "image": "path/to/your/image4.jpg"
+          "image": "../assets/images/findpros/icons/acinstallation.png"
         },
         {
           "name": "Maintenance",
-          "image": "path/to/your/image5.jpg"
+          "image": "../assets/images/findpros/icons/acmaintainence.png"
         }
       ]
     },
@@ -65,11 +116,11 @@
       "subcategories": [
         {
           "name": "Flooring Installation",
-          "image": "path/to/your/image6.jpg"
+          "image": "../assets/images/findpros/icons/flooringinstall.png"
         },
         {
           "name": "Cabinetry and Carpentry",
-          "image": "path/to/your/image7.jpg"
+          "image": "../assets/images/findpros/icons/cabinetinstall.png"
         }
       ]
     },
@@ -79,11 +130,11 @@
       "subcategories": [
         {
           "name": "Wiring",
-          "image": "path/to/your/image8.jpg"
+          "image": "../assets/images/findpros/icons/wiring.png"
         },
         {
           "name": "Lighting",
-          "image": "path/to/your/image9.jpg"
+          "image": "../assets/images/findpros/icons/lighting.png"
         }
       ]
     },
@@ -92,56 +143,24 @@
       "image": "../assets/images/findpros/icons/plumbing.png",
       "subcategories": [
         {
-          "name": "All",
-          "image": "path/to/your/image10.jpg"
-        },
-        {
           "name": "Leak Repair",
-          "image": "path/to/your/image11.jpg"
+          "image": "../assets/images/findpros/icons/leak.png"
         },
         {
           "name": "Toilet Installation",
-          "image": "path/to/your/image11.jpg"
+          "image": "../assets/images/findpros/icons/toilet.png"
         },
         {
           "name": "Water Heater",
-          "image": "path/to/your/image11.jpg"
+          "image": "../assets/images/findpros/icons/heater.png"
         },
         {
           "name": "Drain Cleaning",
-          "image": "path/to/your/image11.jpg"
+          "image": "../assets/images/findpros/icons/drain.png"
         },
         {
           "name": "Fixture Installation",
-          "image": "path/to/your/image11.jpg"
-        }
-      ]
-    },
-    {
-      "name": "TEST",
-      "image": "path/to/your/image3.jpg",
-      "subcategories": [
-        {
-          "name": "TESTSUB",
-          "image": "path/to/your/image10.jpg"
-        },
-        {
-          "name": "TESTSUB Repair",
-          "image": "path/to/your/image11.jpg"
-        }
-      ]
-    },
-    {
-      "name": "TEST2",
-      "image": "path/to/your/image3.jpg",
-      "subcategories": [
-        {
-          "name": "TESTSUB",
-          "image": "path/to/your/image10.jpg"
-        },
-        {
-          "name": "TESTSUB Repair",
-          "image": "path/to/your/image11.jpg"
+          "image": "../assets/images/findpros/icons/fixture.png"
         }
       ]
     }

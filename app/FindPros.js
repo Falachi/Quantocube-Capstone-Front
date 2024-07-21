@@ -50,12 +50,12 @@ const FindPros = ({ navigation }) => {
                                 { opacity: pressed ? 0.5 : 1 }
                             ]}
                             onPress={() => {
-                                navigation.navigate('FindProsCategory');
+                                navigation.navigate('ContractorProfileScreen');
                                 console.log('Featured contractor card pressed!');
                                 console.log('Featured contractor card pressed2');
                             }}
                         >
-                            <Image source={{ uri: 'path/to/your/image1.jpg' }} style={styles.contractorImage} />
+                            <Image source={{ uri: '../assets/images/findpros/contractorpfp/1.jpeg' }} style={styles.contractorImage} />
                             <Text style={styles.contractorName}>Jackson Hon</Text>
                             <Text style={styles.contractorDetails}>Ad · 8.2 km · ⭐ 4.6</Text>
                             <Pressable style={({ pressed }) => [
@@ -75,7 +75,7 @@ const FindPros = ({ navigation }) => {
                                 console.log('Featured contractor card pressed!');
                             }}
                         >
-                            <Image source={{ uri: 'path/to/your/image2.jpg' }} style={styles.contractorImage} />
+                            <Image source={{ uri: '../assets/images/findpros/contractorpfp/2.jpeg' }} style={styles.contractorImage} />
                             <Text style={styles.contractorName}>Joyce Leong</Text>
                             <Text style={styles.contractorDetails}>Ad · 8.2 km · ⭐ 5.0</Text>
                             <Pressable style={({ pressed }) => [
