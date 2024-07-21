@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Pressable } from 'react-native';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import users from '../utils/UserData';
 
 const ContractorProfileScreen = ({ navigation }) => {
-  const [activeTab, setActiveTab] = useState('Work');
-  
+  const [activeTab, setActiveTab] = useState('About');
+
   const user = users[0];
   const receiver = users[1];
 
@@ -24,16 +25,30 @@ const ContractorProfileScreen = ({ navigation }) => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Image source={{ uri: 'https://via.placeholder.com/24' }} style={styles.backIcon} />
-        </TouchableOpacity>
+        <Pressable
+          style={({ pressed }) => [
+            styles.backButton,
+            { opacity: pressed ? 0.5 : 1 }
+          ]}
+          onPress={() => navigation.goBack()}
+        >
+          <Ionicons name="arrow-back" size={24} color="white" />
+        </Pressable>
         <Text style={styles.headerTitle}>Jackson Hon</Text>
-        <TouchableOpacity>
-          <Image source={{ uri: 'https://via.placeholder.com/24' }} style={styles.messageIcon} />
-        </TouchableOpacity>
+        <Pressable
+          style={({ pressed }) => [
+            styles.searchButton,
+            { opacity: pressed ? 0.5 : 1 }
+          ]}
+          onPress={() => {
+            // Handle search button press
+          }}
+        >
+          <Ionicons name="search" size={24} color="white" />
+        </Pressable>
       </View>
       <View style={styles.profileSection}>
-        <Image source={{ uri: 'https://via.placeholder.com/80' }} style={styles.profileImage} />
+        <Image source={{ uri: "../assets/images/findpros/contractorpfp/1.jpeg" }} style={styles.profileImage} />
         <Text style={styles.profileName}>Jackson Hon</Text>
         <View style={styles.profileStats}>
           <Text style={styles.stat}>120</Text>
@@ -51,16 +66,16 @@ const ContractorProfileScreen = ({ navigation }) => {
       </View>
       <View style={styles.tabsContainer}>
         <TouchableOpacity
-          style={[styles.tab, activeTab === 'Work' && styles.activeTab]}
-          onPress={() => setActiveTab('Work')}
-        >
-          <Text style={[styles.tabText, activeTab === 'Work' && styles.activeTabText]}>Work</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
           style={[styles.tab, activeTab === 'About' && styles.activeTab]}
           onPress={() => setActiveTab('About')}
         >
           <Text style={[styles.tabText, activeTab === 'About' && styles.activeTabText]}>About</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.tab, activeTab === 'Work' && styles.activeTab]}
+          onPress={() => setActiveTab('Work')}
+        >
+          <Text style={[styles.tabText, activeTab === 'Work' && styles.activeTabText]}>Work</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.tab, activeTab === 'Review' && styles.activeTab]}
@@ -69,44 +84,21 @@ const ContractorProfileScreen = ({ navigation }) => {
           <Text style={[styles.tabText, activeTab === 'Review' && styles.activeTabText]}>Review</Text>
         </TouchableOpacity>
       </View>
-      {activeTab === 'Work' && (
-        <View style={styles.projectsContainer}>
-          <View style={styles.projectCard}>
-            <Image source={{ uri: 'https://via.placeholder.com/150x100' }} style={styles.projectImage} />
-            <Text style={styles.projectTitle}>Modern Luxury Living Concept</Text>
-          </View>
-          <View style={styles.projectCard}>
-            <Image source={{ uri: 'https://via.placeholder.com/150x100' }} style={styles.projectImage} />
-            <Text style={styles.projectTitle}>Milky Aesthetic Ins Style</Text>
-          </View>
-          <View style={styles.projectCard}>
-            <Image source={{ uri: 'https://via.placeholder.com/150x100' }} style={styles.projectImage} />
-            <Text style={styles.projectTitle}>Cozy Beige Living Room</Text>
-          </View>
-          <View style={styles.projectCard}>
-            <Image source={{ uri: 'https://via.placeholder.com/150x100' }} style={styles.projectImage} />
-            <Text style={styles.projectTitle}>Modern Woody Space</Text>
-          </View>
-        </View>
-      )}
+
       {activeTab === 'About' && (
         <View style={styles.aboutContainer}>
           <View style={styles.statsContainer}>
             <View style={styles.statBox}>
-              <Text style={styles.statBoxText}>4.6</Text>
-              <Text style={styles.statBoxLabel}>REVIEWS</Text>
+              <Text style={styles.statBoxText}>4.6{"\n"}REVIEWS</Text>
             </View>
             <View style={styles.statBox}>
-              <Text style={styles.statBoxText}>100</Text>
-              <Text style={styles.statBoxLabel}>APPRECIATIONS</Text>
+              <Text style={styles.statBoxText}>100{"\n"}APPRECIATIONS</Text>
             </View>
             <View style={styles.statBox}>
-              <Text style={styles.statBoxText}>15</Text>
-              <Text style={styles.statBoxLabel}>COMPLETED PROJECT</Text>
+              <Text style={styles.statBoxText}>15{"\n"}COMPLETED PROJECTS</Text>
             </View>
             <View style={styles.statBox}>
-              <Text style={styles.statBoxText}>100%</Text>
-              <Text style={styles.statBoxLabel}>COMPLETION RATE</Text>
+              <Text style={styles.statBoxText}>100%{"\n"}COMPLETION RATE</Text>
             </View>
           </View>
           <Text style={styles.locationTitle}>LOCATION</Text>
@@ -122,6 +114,26 @@ const ContractorProfileScreen = ({ navigation }) => {
             lifestyle of my clients. I believe in the power of design to transform spaces and enhance the quality of
             life.
           </Text>
+        </View>
+      )}
+      {activeTab === 'Work' && (
+        <View style={styles.projectsContainer}>
+          <View style={styles.projectCard}>
+            <Image source={{ uri: "../assets/images/findpros/contractorsplash/work1.png" }} style={styles.projectImage} />
+            <Text style={styles.projectTitle}>Modern Luxury Living Concept</Text>
+          </View>
+          <View style={styles.projectCard}>
+            <Image source={{ uri: "../assets/images/findpros/contractorsplash/work2.png" }} style={styles.projectImage} />
+            <Text style={styles.projectTitle}>Milky Aesthetic Ins Style</Text>
+          </View>
+          <View style={styles.projectCard}>
+            <Image source={{ uri: "../assets/images/findpros/contractorsplash/work3.png" }} style={styles.projectImage} />
+            <Text style={styles.projectTitle}>Cozy Beige Living Room</Text>
+          </View>
+          <View style={styles.projectCard}>
+            <Image source={{ uri: "../assets/images/findpros/contractorsplash/work4.png" }} style={styles.projectImage} />
+            <Text style={styles.projectTitle}>Modern Woody Space</Text>
+          </View>
         </View>
       )}
       {activeTab === 'Review' && (
@@ -149,21 +161,23 @@ const ContractorProfileScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#1b1b1b',
   },
   header: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
+    justifyContent: 'space-between',
     padding: 16,
+    backgroundColor: '#1b1b1b',
   },
   backIcon: {
     width: 24,
     height: 24,
   },
   headerTitle: {
-    color: '#fff',
-    fontSize: 20,
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
   messageIcon: {
     width: 24,
@@ -218,8 +232,9 @@ const styles = StyleSheet.create({
   tabsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: '#111',
+    backgroundColor: '#000',
     paddingVertical: 10,
+    borderTopLeftRadius: 30,
   },
   tab: {
     paddingVertical: 10,
@@ -242,6 +257,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     padding: 16,
+    backgroundColor: '#000',
   },
   projectCard: {
     backgroundColor: '#222',
@@ -263,28 +279,35 @@ const styles = StyleSheet.create({
   },
   aboutContainer: {
     padding: 16,
+    backgroundColor: '#000',
   },
   statsContainer: {
+    // flexDirection: 'column',
+    // justifyContent: 'space-around',
+    // marginBottom: 16,
+    // width: '100%',
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginBottom: 16,
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    padding: 16,
   },
   statBox: {
+    marginBottom: 7,
     backgroundColor: '#333',
-    padding: 16,
+    padding: 10,
     borderRadius: 8,
     alignItems: 'center',
-    width: '22%',
+    width: '47%',
+    aspectRatio: 2,
   },
   statBoxText: {
-    color: '#fff',
-    fontSize: 18,
-  },
-  statBoxLabel: {
-    color: '#999',
-    fontSize: 12,
-    marginTop: 4,
+    // color: '#999',
+    // fontSize: 12,
+    // marginTop: 4,
     textAlign: 'center',
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: 'white',
   },
   locationTitle: {
     color: '#fff',
@@ -308,6 +331,7 @@ const styles = StyleSheet.create({
   },
   reviewContainer: {
     padding: 16,
+    backgroundColor: '#000',
   },
   reviewCount: {
     color: '#fff',
@@ -342,6 +366,14 @@ const styles = StyleSheet.create({
   },
   readMore: {
     color: '#fe5823',
+  },
+  backButton: {
+    backgroundColor: '#FE5823',
+    borderRadius: 24,
+    aspectRatio: 1,
+    padding: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

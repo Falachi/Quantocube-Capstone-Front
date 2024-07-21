@@ -30,14 +30,15 @@ const Quantocube = () => {
   return (
     <Provider store={store}>
       <NavigationContainer independent={true}>
-        <Stack.Navigator initialRouteName="Login">
+        <Stack.Navigator initialRouteName="ContractorHomePage">
+          <Stack.Screen name="ContractorHomePage" component={ContractorHomePage} />
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Signup" component={SignupScreen} />
           <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
           <Stack.Screen name="Verification" component={VerificationScreen} />
           <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
           <Stack.Screen name="HomeownerHomePage" component={HomeownerHomePage} />
-          <Stack.Screen name="ContractorHomePage" component={ContractorHomePage} />
+
           <Stack.Screen name="HomeownerProjectOverview" component={HomeownerProjectOverview} />
           <Stack.Screen name="ServiceRequest" component={ServiceRequest} />
           <Stack.Screen name="ServiceApproved" component={ServiceApproved} />
