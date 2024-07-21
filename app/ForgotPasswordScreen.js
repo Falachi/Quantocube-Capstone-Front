@@ -1,26 +1,37 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 
 const ForgotPasswordScreen = ({ navigation }) => {
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [error, setError] = useState(null);
 
   const handleSendOTP = () => {
     if (phoneNumber) {
-      // Implement OTP sending logic here
-      navigation.navigate('Verification', { phoneNumber });
+      if (/^\d{9,10}$/.test(phoneNumber)) {
+        // Implement OTP sending logic here
+        navigation.navigate('Verification', { phoneNumber: `+60-${phoneNumber}` });
+        setError(null); // Clear error if phone number is valid
+      } else {
+        setError('Phone number must be 9 or 10 numerical characters.');
+      }
     } else {
-      alert('Please enter your phone number');
+      setError('Please enter your phone number');
     }
   };
 
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        placeholder="Phone Number"
-        value={phoneNumber}
-        onChangeText={setPhoneNumber}
-      />
+      <View style={styles.phoneContainer}>
+        <Text style={styles.phonePrefix}>+60-</Text>
+        <TextInput
+          style={styles.phoneInput}
+          placeholder="Phone Number"
+          value={phoneNumber}
+          onChangeText={setPhoneNumber}
+          keyboardType="numeric"
+        />
+      </View>
+      {error && <Text style={styles.errorText}>{error}</Text>}
       <TouchableOpacity style={styles.button} onPress={handleSendOTP}>
         <Text style={styles.buttonText}>Send OTP</Text>
       </TouchableOpacity>
@@ -35,12 +46,21 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: '#000',
   },
-  input: {
-    height: 40,
+  phoneContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
     borderColor: 'gray',
     borderWidth: 1,
-    marginBottom: 12,
     paddingLeft: 8,
+    height: 40,
+  },
+  phonePrefix: {
+    color: '#fff',
+    marginRight: 5,
+  },
+  phoneInput: {
+    flex: 1,
     color: '#fff',
   },
   button: {
@@ -51,6 +71,11 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     fontSize: 18,
+  },
+  errorText: {
+    color: 'red',
+    textAlign: 'center',
+    marginBottom: 12,
   },
 });
 

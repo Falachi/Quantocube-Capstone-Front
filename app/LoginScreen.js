@@ -1,38 +1,50 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../slices/authSlice';
+import { login, emptyfield } from '../slices/authSlice';
 
 const LoginScreen = ({ navigation }) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
+  const error = useSelector(state => state.auth.error);
+  const valid = useSelector(state => state.auth.valid);
   const dispatch = useDispatch();
   const role = useSelector(state => state.auth.role);
 
+  useEffect(() => {
+    if (error) {
+      Alert.alert('Login Error', error);
+    }
+  }, [error]);
+
   const handleLogin = () => {
     if (phoneNumber && password) {
-      dispatch(login({ phoneNumber }));
-      // Navigate to the appropriate home screen based on the role
-      if (role === 'homeowner') {
-        navigation.navigate('HomeownerHomePage');
-      } else if (role === 'contractor') {
-        navigation.navigate('ContractorHomePage');
-      } else {
-        alert('Role not found');
+      dispatch(login({ phoneNumber, password }));
+      if (role&&valid) {
+        if (role === 'homeowner') {
+          navigation.navigate('HomeownerHomePage');
+        } else if (role === 'contractor') {
+          navigation.navigate('ContractorHomePage');
+        }
       }
-    } else {
-      alert('Please fill in all fields');
+    }
+    else {
+      dispatch(emptyfield());
     }
   };
 
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        placeholder="Phone Number"
-        value={phoneNumber}
-        onChangeText={setPhoneNumber}
-      />
+      <View style={styles.phoneContainer}>
+        <Text style={styles.phonePrefix}>+60-</Text>
+        <TextInput
+          style={styles.phoneInput}
+          placeholder="Phone Number"
+          value={phoneNumber}
+          onChangeText={setPhoneNumber}
+          keyboardType="numeric"
+        />
+      </View>
       <TextInput
         style={styles.input}
         placeholder="Password"
@@ -40,6 +52,7 @@ const LoginScreen = ({ navigation }) => {
         onChangeText={setPassword}
         secureTextEntry
       />
+      {error && <Text style={styles.errorText}>{error}</Text>}
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Enter</Text>
       </TouchableOpacity>
@@ -59,6 +72,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 16,
     backgroundColor: '#000',
+  },
+  phoneContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+    borderColor: 'gray',
+    borderWidth: 1,
+    paddingLeft: 8,
+    height: 40,
+  },
+  phonePrefix: {
+    color: '#fff',
+    marginRight: 5,
+  },
+  phoneInput: {
+    flex: 1,
+    color: '#fff',
   },
   input: {
     height: 40,
@@ -81,6 +111,11 @@ const styles = StyleSheet.create({
     color: '#FE5823',
     marginTop: 16,
     textAlign: 'center',
+  },
+  errorText: {
+    color: 'red',
+    textAlign: 'center',
+    marginBottom: 12,
   },
 });
 

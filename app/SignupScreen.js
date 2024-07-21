@@ -1,55 +1,45 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
-import { useDispatch } from 'react-redux';
-import { signup } from '../slices/authSlice';
-import { configureStore, createSlice } from '@reduxjs/toolkit';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { signup, emptyfield } from '../slices/authSlice';
 
 const SignupScreen = ({ navigation }) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [role, setRole] = useState('homeowner'); // Default role is homeowner
+  const error = useSelector(state => state.auth.error);
   const dispatch = useDispatch();
+  const signupError = useSelector(state => state.auth.error);
+
+  useEffect(() => {
+    if (signupError) {
+      Alert.alert('Signup Error', signupError);
+    }
+  }, [signupError]);
 
   const handleSignup = () => {
-    if (phoneNumber && password && email && role) {
-      dispatch(signup({ phoneNumber, role }));
-      // Navigate to the home screen or other screen after signup
-    } else {
-      alert('Please fill in all fields');
+    if (phoneNumber && password && email) {
+      dispatch(signup({ phoneNumber, password, email, role }));
     }
+    else {
+      dispatch(emptyfield());
+    }
+
   };
-
-  const initialState={
-    accounttype:'homeowner',
-  }
-  const AccType = createSlice({
-    name: 'accounttype',
-    initialState,
-    reducers: {
-      homeowner: (state) => {
-        state.accounttype = 'homeowner';
-      },
-      contractor: (state) => {
-        state.accounttype = 'contractor';
-      },
-    },
-  })
-
-  const store = configureStore({
-    reducer: AccType.reducer,
-
-  })
-
 
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        placeholder="Phone Number"
-        value={phoneNumber}
-        onChangeText={setPhoneNumber}
-      />
+      <View style={styles.phoneContainer}>
+        <Text style={styles.phonePrefix}>+60-</Text>
+        <TextInput
+          style={styles.phoneInput}
+          placeholder="Phone Number"
+          value={phoneNumber}
+          onChangeText={setPhoneNumber}
+          keyboardType="numeric"
+        />
+      </View>
       <TextInput
         style={styles.input}
         placeholder="Password"
@@ -74,6 +64,7 @@ const SignupScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
+      {error && <Text style={styles.errorText}>{error}</Text>}
       <TouchableOpacity style={styles.button} onPress={handleSignup}>
         <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableOpacity>
@@ -87,6 +78,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 16,
     backgroundColor: '#000',
+  },
+  phoneContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+    borderColor: 'gray',
+    borderWidth: 1,
+    paddingLeft: 8,
+    height: 40,
+  },
+  phonePrefix: {
+    color: '#fff',
+    marginRight: 5,
+  },
+  phoneInput: {
+    flex: 1,
+    color: '#fff',
   },
   input: {
     height: 40,
@@ -128,7 +136,11 @@ const styles = StyleSheet.create({
   roleButtonText: {
     color: '#fff',
   },
+  errorText: {
+    color: 'red',
+    textAlign: 'center',
+    marginBottom: 12,
+  },
 });
-
 
 export default SignupScreen;
