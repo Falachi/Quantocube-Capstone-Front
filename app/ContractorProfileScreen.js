@@ -43,7 +43,7 @@ const ContractorProfileScreen = ({ navigation }) => {
       </View>
       <View style={styles.actionsContainer}>
         <TouchableOpacity style={styles.followButton} onPress={() => handleToChat()}>
-          <Text style={styles.buttonText}>Follow</Text>
+          <Text style={styles.buttonText}>Chat</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.hireButton} onPress={() => handleStartChat()}>
           <Text style={styles.buttonText}>Hire</Text>

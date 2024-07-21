@@ -21,6 +21,7 @@ const SignupScreen = ({ navigation }) => {
   const handleSignup = () => {
     if (phoneNumber && password && email) {
       dispatch(signup({ phoneNumber, password, email, role }));
+      navigation.navigate('Login');
     }
     else {
       dispatch(emptyfield());
