@@ -9,6 +9,7 @@ const initialState = {
   newpassword: null,
   confirmPassword: null,
   resetvalid:false,
+  signupvalid:false,
 };
 
 const authSlice = createSlice({
@@ -57,6 +58,11 @@ const authSlice = createSlice({
       // Replace the following logic with your real registration validation
       if (phoneNumber === 'alreadyRegisteredPhoneNumber') { // Replace with real check for existing phone number
         state.error = 'Phone number already registered.';
+        return;
+      }
+
+      if (phoneNumberRegex.test(phoneNumber)&&passwordRegex.test(password)&&emailRegex.test(email)){
+        state.signupvalid=true;
         return;
       }
 

@@ -11,6 +11,7 @@ const SignupScreen = ({ navigation }) => {
   const error = useSelector(state => state.auth.error);
   const dispatch = useDispatch();
   const signupError = useSelector(state => state.auth.error);
+  const signupvalid = useSelector(state => state.auth.signupvalid);
 
   useEffect(() => {
     if (signupError) {
@@ -21,7 +22,9 @@ const SignupScreen = ({ navigation }) => {
   const handleSignup = () => {
     if (phoneNumber && password && email) {
       dispatch(signup({ phoneNumber, password, email, role }));
-      navigation.navigate('Login');
+      if (signupvalid) {
+        navigation.navigate('Login');
+      }
     }
     else {
       dispatch(emptyfield());
