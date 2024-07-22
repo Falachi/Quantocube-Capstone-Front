@@ -22,7 +22,7 @@ const HomeownerHomePage = () => {
         </View>
       </View>
       <View style={styles.quickAccessButtonContainer}>
-        <TouchableOpacity style={styles.quickAccessButton}>
+        <TouchableOpacity style={styles.quickAccessButton} onPress={() => navigation.navigate('FindPros')}>
           <View style={styles.quickAccessTextContainer}>
             <Text style={styles.quickAccessTitle}>Find Pros</Text>
           </View>
