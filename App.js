@@ -52,7 +52,7 @@ const App = () => {
           <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
           <Stack.Screen name="Verification" component={VerificationScreen} />
           <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
-          <Stack.Screen name="HomeownerHomePage" component={HomeownerHomePage} />
+          <Stack.Screen name="HomeownerHomePage" component={HomeownerHomePage} options={{ headerShown: false }} />
           <Stack.Screen name="ContractorHomePage" component={ContractorHomePage} />
           <Stack.Screen name="HomeownerProjectOverview" component={HomeownerProjectOverview} />
           <Stack.Screen name="ServiceRequest" component={ServiceRequest} />
